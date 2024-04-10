@@ -1,0 +1,63 @@
+--made by antony estora cuca
+
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local PhantomForcesWindow = Library:NewWindow("FREE UGC SPINNER")
+
+local KillingCheats = PhantomForcesWindow:NewSection("Main")
+
+KillingCheats:CreateToggle("Auto Spin", function(value)
+while wait(3) do
+local args = {
+    [1] = 1712709392
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("UGC"):WaitForChild("UseSpin"):FireServer(unpack(args))
+end
+end)
+
+KillingCheats:CreateToggle("Auto Obby", function(value)
+while wait(7) do
+local function teleportToNamedPart(partName)
+    local parts = game.Workspace:GetDescendants()
+    for _, part in ipairs(parts) do
+        if part:IsA("Part") and part.Name == partName then
+            game.Players.LocalPlayer.Character:SetPrimaryPartCFrame(part.CFrame)
+            print("Teleportado a " .. partName)
+        end
+    end
+end
+
+teleportToNamedPart("TouchDetector")
+end
+end)
+
+KillingCheats:CreateButton("Touch Rainbow", function()
+game:GetService('Players').LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-213.650696, 150.619232, 7.50028467, 0.0950763375, -2.15847784e-08, -0.995469987, 1.04163554e-07, 1, -1.17344463e-08, 0.995469987, -1.02576024e-07, 0.0950763375)
+end)
+
+KillingCheats:CreateButton("Anti AFK", function()
+while not game:IsLoaded() do wait() end
+repeat wait() until game.Players.LocalPlayer.Character
+Players = game:GetService("Players")
+local GC = getconnections or get_signal_cons
+if GC then
+	for i,v in pairs(GC(Players.LocalPlayer.Idled)) do
+		if v["Disable"] then v["Disable"](v)
+		elseif v["Disconnect"] then v["Disconnect"](v)
+		end
+	end
+else
+  Players.LocalPlayer.Idled:Connect(function()
+    VirtualUser:CaptureController()
+    VirtualUser:ClickButton2(Vector2.new())
+  end)
+end
+game.StarterGui:SetCore('SendNotification', { Title = 'We love God'; Text = 'Anti-AFK activated!'; })
+end)
+
+local KillingCheats = PhantomForcesWindow:NewSection("Credits")
+
+KillingCheats:CreateButton("say thanks to God, not to me", function()
+print("Love God because he loves you")
+end)
